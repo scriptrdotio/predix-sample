@@ -45,7 +45,7 @@ var content= '<!DOCTYPE html>\n\
 	<script>\n\
       function placeMarkers(spots) {\n\
 \n\
-        for (var i = 0; i < spots.length; i++) {\n\
+        for (var i = 0; spots && i < spots.length; i++) {\n\
           \n\
           var locationStr = spots[i].location.P1;\n\
           var location = locationStr.split(\",\");\n\
@@ -66,7 +66,7 @@ var content= '<!DOCTYPE html>\n\
         var modal = document.getElementById(\"loadingMsg\");\n\
         modal.style.display = \"block\";\n\
         var xhr = new XMLHttpRequest();\n\
-        xhr.open(\"GET\", \"https://iotdemos.scriptrapps.io/predix/basicdemo/parking\");\n\
+        xhr.open(\"GET\", \"https://iotdemos.scriptrapps.io/predixbasicdemo/parking\");\n\
         xhr.onload = function() {\n\
 \n\
           var httpResponse = JSON.parse(xhr.responseText);\n\
