@@ -70,7 +70,19 @@ var content= '<!DOCTYPE html>\n\
         xhr.onload = function() {\n\
 \n\
           var httpResponse = JSON.parse(xhr.responseText);\n\
-          placeMarkers(httpResponse.response.result);    \n\
+          var httpResponse = JSON.parse(xhr.responseText);\n\
+          console.log(httpResponse);\n\
+          if (httpResponse.response.metadata && httpResponse.response.metadata.errorCode) {
+            
+            alert("An error occurred " + httpResponse.response.metadata.errorDetail);
+            console.log(httpResponse.response.metadata);\n\
+            var loadingDiv = document.getElementById("loadingMsg");
+            if (loadingDiv) {
+              loadingDiv.style.display = "none"; 
+            }
+          }else {
+          	placeMarkers(httpResponse.response.result);            
+          }
         };\n\
 \n\
         xhr.onerror = function(error) {\n\
